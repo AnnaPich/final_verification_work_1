@@ -1,9 +1,9 @@
 ﻿
 //Receiving a message from the user:
-string[] DataEntySymbols(int size)
+string[] DataEntySymbols(int sizeArray)
 {
-    string[] array = new string[size];
-    for (int i = 0; i < size; i++)
+    string[] array = new string[sizeArray];
+    for (int i = 0; i < sizeArray; i++)
     {
         Console.Write("Введите строку символов: ");
         array[i] = Console.ReadLine();
@@ -13,17 +13,18 @@ string[] DataEntySymbols(int size)
 
 //Program:
 
-int size = 4;
-string[] array = DataEntySymbols(size);
-
-//string lineFirst = DataEntySymbols("Введите первую строку символов: ");
-//string lineSecond = DataEntySymbols("Введите вторую строку символов: ");
-//string lineThird = DataEntySymbols("Введите третью строку символов: ");
-//string LineFourth = DataEntySymbols("Введите четвертую строку символов: ");
-
-//string [] array = new string [] {lineFirst, lineSecond, lineThird, LineFourth};
-
+int sizeArray = 4;
+string[] array = DataEntySymbols(sizeArray);
 Console.Write('[' + string.Join(", ", array) + ']');
-Console.WriteLine(array[1]);
 
-
+string[] newArray = new string[sizeArray];
+int j = 0;
+for (int i = 0; i < array.Length; i++)
+{
+    if (array[i].Length <= 3)
+    {
+        newArray[j] = array[i];
+        j++;
+    } 
+}   
+Console.Write(" -> " + '[' + string.Join(", ", newArray) + ']');
